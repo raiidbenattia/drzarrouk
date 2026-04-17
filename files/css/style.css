@@ -862,6 +862,10 @@ textarea.w-select {
 }
 
 @media screen and (max-width: 991px) {
+  .cta-sticky a {
+    font-size: 13px
+  }
+
   .w-container {
     max-width: 728px;
   }
@@ -2571,7 +2575,7 @@ img {
 }
 
 .body-15px-reular.features-left-exar {
-  max-width: 167px;
+  max-width: 180px;
 }
 
 .body-15px-reular.smile-text {
@@ -2606,6 +2610,68 @@ img {
 
 .theme-button-wrap.book-now-btn-wrap._02 {
   background-color: var(--_colors---white);
+}
+
+.cta-sticky {
+  position: fixed;
+  bottom: -7vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .5rem;
+  border: 1px solid white;
+  border-radius: 50px;
+  background-color: var(--_colors---about-image-background);
+  box-shadow: -5px 10px 10px -4px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+.cta-sticky a {
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+  font-size: 16px;
+  border-radius: 50px;
+  height: 5vh;
+  text-decoration: none;
+}
+
+.cta-sticky.scroll {
+  bottom: 2vh;
+}
+
+.sticky-whatsapp {
+  background-color: var(--_colors---primary-body-color);
+  color: var(--_colors---white);
+  gap: .5rem;
+  border: .5px solid var(--_colors---primary-body-color);
+}
+
+.sticky-whatsapp .arrow-wrap._03 {
+  width: 40px;
+  height: 40px;
+}
+
+.button_arrow-icon,
+.button_whatsapp-icon {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex
+}
+
+.button_arrow {
+  aspect-ratio: 1;
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 999rem;
+  flex: none;
+  height: 1.25rem;
+  position: static
 }
 
 .btn-link-wrap {
@@ -2796,6 +2862,7 @@ img {
   height: 65%;
   right: 20px;
   top: 10%;
+  max-width: 930px;
 }
 
 .hero-wrap .video video,
@@ -2873,7 +2940,7 @@ img {
   height: 160px;
   display: flex;
   position: absolute;
-  inset: auto 0% 5% auto;
+  inset: auto 0% 0% auto;
 }
 
 .invite-cercil-wrap {
@@ -2931,7 +2998,7 @@ img {
   flex-flow: column;
   justify-content: center;
   align-items: flex-start;
-  width: 40%;
+  width: 90%;
   display: flex;
 }
 
@@ -2944,10 +3011,53 @@ img {
   display: flex;
 }
 
-.caring {
+.available {
   font-size: var(--_font-size---h4--font-size);
   line-height: var(--_font-size---h3--line-height);
   font-weight: var(--medium);
+}
+
+.available .open,
+.available .closed {
+  display: none;
+}
+
+.available .open::before,
+.available .closed::before {
+  content: "";
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.available .open::before {
+  background-color: #1aad50;
+  box-shadow: 0px 0px 0px 2px #1aad5033;
+  animation: pulse 2s infinite;
+}
+
+.available .closed::before {
+  background-color: #ff0000;
+}
+
+.now {
+  display: inline-block !important;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 0px 0px #1aad5033;
+  }
+
+  70% {
+    box-shadow: 0px 0px 0px 10px #1aad5000;
+  }
+
+  100% {
+    box-shadow: 0px 0px 0px 0px #1aad5000;
+  }
 }
 
 .features-left-link-wrap {
@@ -2996,19 +3106,17 @@ img {
   line-height: 120%;
 }
 
-.features-left-item-box-02 {
+.features-left-item-box {
   grid-column-gap: 15px;
   grid-row-gap: 15px;
   background-color: #0000;
-  background-image: linear-gradient(90deg, var(--_colors---blue-gray) 50%, var(--_colors---white) 50%);
   box-shadow: 10px 10px 40px 0 var(--_colors---shadow);
-  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: -webkit-fill-available;
   max-width: none;
   padding: 28px 24px;
   display: flex;
@@ -3218,16 +3326,16 @@ img {
 
 .about-img-wrap {
   z-index: 32;
-  background-image: url("https://cdn.prod.website-files.com/68a75398e3a48150f39441ec/68a9469543190a19252244bd_a897931d0571a94955d4201ab2ca739f_modern-clinic-concept%201.webp");
-  background-position: 0%;
-  background-repeat: repeat-y;
-  background-size: cover;
   border-radius: 16px;
   width: 100%;
-  max-width: 637px;
-  height: 391px;
+  height: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.about-img-wrap picture {
+  width: 100%;
+  height: 100%;
 }
 
 .cercle {
@@ -4019,9 +4127,9 @@ img {
   flex-flow: row;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
   display: flex;
   position: relative;
+  flex-direction: column;
 }
 
 .footer-right {
@@ -5754,9 +5862,7 @@ img {
   }
 
   .about-img-wrap {
-    background-image: url("https://cdn.prod.website-files.com/68a75398e3a48150f39441ec/68a9469543190a19252244bd_a897931d0571a94955d4201ab2ca739f_modern-clinic-concept%201.webp");
     background-position: 0%;
-    background-repeat: repeat-y;
     background-size: cover;
   }
 
@@ -6745,7 +6851,7 @@ img {
   }
 
   .features-left-item-wrap {
-    width: 35%;
+    width: 100%;
   }
 
   .features-left-item-02-wrap {
@@ -7214,6 +7320,25 @@ img {
     align-items: center;
     position: static;
   }
+
+  .sticky-whatsapp {
+    gap: .4rem;
+  }
+
+  .sticky-whatsapp ._03 {
+    width: 35px;
+    height: 35px;
+  }
+
+  .cta-sticky {
+    gap: .5rem;
+    padding: .2rem;
+    width: max-content
+  }
+
+  .cta-sticky a {
+    padding: .5rem;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -7479,10 +7604,6 @@ img {
   .section-title.team-title,
   .about-excerpt {
     text-align: center;
-  }
-
-  .about-img-wrap {
-    height: 250px;
   }
 
   .cercle {
@@ -8105,6 +8226,16 @@ img {
   .arrow-wrap._03 {
     width: 50px;
     height: 50px;
+  }
+
+  .sticky-whatsapp .arrow-wrap._03 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .cta-sticky a {
+    padding: .5rem;
+    font-size: 14px;
   }
 
   .image-7 {
