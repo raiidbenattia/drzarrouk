@@ -3172,10 +3172,8 @@ img {
 }
 
 .clint {
-  border: 2px solid var(--_colors---white);
-  border-radius: 50%;
   width: 100%;
-  max-width: 56px;
+  max-width: 200px;
 }
 
 .clint-2 {
@@ -3428,9 +3426,10 @@ img {
 }
 
 .choose-us-item-wrap {
-  justify-content: flex-start;
-  align-items: stretch;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 5px;
 }
 
 .choose-us-item-cerd {
@@ -3440,10 +3439,8 @@ img {
   box-shadow: 10px 10px 40px 0 var(--_colors---shadow);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
   flex-flow: column;
-  justify-content: center;
+  justify-content: start;
   align-items: flex-start;
   width: 100%;
   padding: 55px 40px;
@@ -7642,6 +7639,9 @@ img {
 
   .choose-us-item-wrap {
     grid-template-columns: 1fr;
+  }
+
+  .choose-us-item-wrap:nth-last-child(1) {
     display: none;
   }
 
@@ -7702,9 +7702,6 @@ img {
     width: 100%;
   }
 
-  .service-img-wrap {
-    display: none;
-  }
 
   .appointment-wrap {
     background-image: linear-gradient(161deg, var(--_colors---white) 50%, var(--_colors---service-item-background));
