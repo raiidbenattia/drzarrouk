@@ -254,3 +254,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// FAQ Toggle
+document.querySelectorAll(".faq-block .q-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.add("active");
+    document.querySelectorAll(".faq-block .q-card").forEach((otherCard) => {
+      if (otherCard !== card) {
+        otherCard.classList.remove("active");
+      }
+    });
+  });
+});

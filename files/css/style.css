@@ -3624,7 +3624,7 @@ img {
 
 .appointment-wrap {
   background-color: #0000;
-  background-image: linear-gradient(89deg, var(--_colors---white) 45.83%, var(--_colors---vista-blue) 75.69%);
+  background-image: linear-gradient(180deg, var(--_colors---white) 12%, var(--_colors---vista-blue) 100% 100%);
   border-radius: 16px;
   padding: 100px 20px;
 }
@@ -3637,7 +3637,7 @@ img {
 }
 
 .appointment-item-wrap {
-  grid-column-gap: 120px;
+  grid-column-gap: 30px;
   grid-row-gap: 120px;
   justify-content: center;
   align-items: center;
@@ -3659,8 +3659,53 @@ img {
   overflow: hidden;
 }
 
-.form-block {
+.faq-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
   margin-bottom: 0;
+}
+
+.faq-block .q-card {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  height: 80px;
+  transition: all 0.3s ease;
+  box-shadow: 10px 10px 40px 0 var(--_colors---shadow);
+}
+
+.faq-block .q-card.active {
+  height: 190px;
+  gap: 10px;
+}
+
+.faq-block .q-card span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.faq-block .q-card span .ques {
+  font-size: 18px;
+  line-height: var(--_font-size---h4--line-height);
+  font-weight: bold;
+}
+
+.faq-block .q-card span img {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+.faq-block .q-card.active span img {
+  transform: rotate(180deg);
 }
 
 .appointment-input-wrap {
@@ -4217,7 +4262,7 @@ img {
   text-decoration: none;
 }
 
-.footer-form-block {
+.footer-faq-block {
   width: 100%;
   margin-bottom: 0;
 }
@@ -7717,11 +7762,16 @@ img {
     display: none;
   }
 
-  .appointment-form {
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    display: block;
+  .faq-block .q-card {
+    height: 95px;
+  }
+
+  .faq-block .q-card.active {
+    height: 240px;
+  }
+
+  .faq-block .q-card span {
+    gap: 5px;
   }
 
   .appointment-input-wrap {
