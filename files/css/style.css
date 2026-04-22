@@ -1271,10 +1271,10 @@ textarea.w-select {
   text-align: center;
   clear: both;
   -webkit-tap-highlight-color: #0000;
-  tap-highlight-color: #0000;
   background: #ddd;
   height: 300px;
   position: relative;
+  scroll-snap-align: start;
 }
 
 .w-slider-mask {
@@ -1283,9 +1283,8 @@ textarea.w-select {
   height: 100%;
   display: block;
   position: relative;
-  left: 0;
-  right: 0;
-  overflow: hidden;
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
 .w-slide {
@@ -1296,6 +1295,7 @@ textarea.w-select {
   height: 100%;
   display: inline-block;
   position: relative;
+  will-change: transform;
 }
 
 .w-slider-nav {
@@ -1336,30 +1336,6 @@ textarea.w-select {
 
 .w-slider-nav-invert>div.w-active {
   background-color: #222;
-}
-
-.w-slider-dot {
-  cursor: pointer;
-  background-color: #fff6;
-  width: 1em;
-  height: 1em;
-  margin: 0 3px .5em;
-  transition: background-color .1s, color .1s;
-  display: inline-block;
-  position: relative;
-}
-
-.w-slider-dot.w-active {
-  background-color: #fff;
-}
-
-.w-slider-dot:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #fff;
-}
-
-.w-slider-dot:focus.w-active {
-  box-shadow: none;
 }
 
 .w-slider-arrow-left,
@@ -4148,6 +4124,7 @@ img {
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  margin-bottom: 40px;
 }
 
 .footer-wrap {
@@ -4236,6 +4213,7 @@ img {
 
 .footer-right-item iframe {
   border-radius: 16px;
+  background-color: var(--_colors---features-item-background);
 }
 
 .quick-links {
@@ -4758,13 +4736,11 @@ img {
 }
 
 .cta-left-img-wrap {
-  background-image: url("https://cdn.prod.website-files.com/68a75398e3a48150f39441ec/68ac561c77491911668d608b_dc1f26cecd47134354d613cedf807ec9_cta.webp");
   background-repeat: repeat-y;
   background-size: cover;
   border-radius: 16px;
   justify-content: center;
   align-items: flex-end;
-  height: 482px;
   padding-right: 0;
   display: flex;
   position: relative;
@@ -5665,8 +5641,8 @@ img {
   border-radius: 16px;
   flex-flow: column;
   width: 100%;
-  min-width: 270px;
-  max-width: 270px;
+  min-width: auto;
+  max-width: 420px;
   padding: 40px 32px;
   display: flex;
 }
@@ -7753,25 +7729,38 @@ img {
     padding: 50px 10px;
   }
 
+  .service-img-wrap {
+    width: 75%;
+  }
+
   .appointment-left {
     grid-column-gap: 40px;
     grid-row-gap: 40px;
   }
 
-  .appointment-right {
-    display: none;
-  }
-
   .faq-block .q-card {
-    height: 95px;
+    height: 8vh;
   }
 
   .faq-block .q-card.active {
-    height: 240px;
+    height: 20vh;
   }
 
   .faq-block .q-card span {
-    gap: 5px;
+    gap: 20px;
+  }
+
+  .faq-block .q-card span .ques {
+    font-size: 15px;
+  }
+
+  .faq-block .q-card span img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .faq-block .q-card .rep {
+    font-size: 14px;
   }
 
   .appointment-input-wrap {
@@ -7846,6 +7835,7 @@ img {
     justify-content: center;
     align-items: center;
     padding-left: 0;
+    text-align: center
   }
 
   .blog-section {
@@ -8309,7 +8299,7 @@ img {
   }
 
   .footer-email-wrap {
-    min-width: auto;
+    max-width: 270px;
     padding: 30px 20px;
   }
 
@@ -8363,18 +8353,50 @@ img {
     display: flex;
   }
 
+  .team-img-wrap {
+    height: 300px;
+  }
+
   .team-slider-mask {
     width: 100%;
+    scroll-snap-type: x mandatory;
   }
 
   .left-arrow-2 {
-    display: none;
+    display: block;
     left: -24px;
   }
 
   .right-arrow-2,
   .slide-nav-2 {
-    display: none;
+    display: block;
+    bottom: -3rem;
+    text-align: center;
+  }
+
+  .dot {
+    cursor: pointer;
+    background-color: gray;
+    width: 10px;
+    height: 10px;
+    margin: 0 3px .5em;
+    transition: background-color .1s, color .1s;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+  }
+
+  .dot.active {
+    background-color: var(--_colors---primary-body-color);
+  }
+
+  .dot:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #fff;
+  }
+
+  .dot:focus.active {
+    box-shadow: none;
   }
 
   .choose-slider {
@@ -8402,6 +8424,13 @@ img {
     margin-right: 0;
     padding-right: 0;
   }
+}
+
+@media screen and (max-width: 375px) {
+  .faq-block .q-card.active {
+    height: 23vh;
+  }
+
 }
 
 #w-node-ddfd0cb3-2857-e0ed-67df-36ac568c2b2b-568c2b08 {
