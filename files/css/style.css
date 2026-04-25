@@ -145,11 +145,6 @@ input[type="reset"] {
   cursor: pointer;
 }
 
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -314,10 +309,6 @@ html.w-mod-touch * {
 
 input.w-button {
   -webkit-appearance: button;
-}
-
-html[data-w-dynpage] [data-w-cloak] {
-  color: #0000 !important;
 }
 
 .w-code-block {
@@ -3277,7 +3268,6 @@ img {
 }
 
 .section-title.team-title {
-  text-align: center;
   max-width: 482px;
 }
 
@@ -4143,7 +4133,7 @@ img {
 }
 
 .footer-section {
-  padding-bottom: 10px;
+  padding-bottom: 40px;
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 40px;
@@ -4431,7 +4421,7 @@ img {
 }
 
 .page-title-text.style-two {
-  max-width: 711px;
+  max-width: 80%;
 }
 
 .italic {
@@ -4449,6 +4439,11 @@ img {
   padding-bottom: 100px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.about-top-service {
+  margin-top: -50px !important;
+  padding-bottom: 30px !important
 }
 
 .about-top-row {
@@ -4559,6 +4554,13 @@ img {
   padding-bottom: 100px;
   padding-left: 20px;
   padding-right: 20px;
+  display: flex;
+}
+
+.technology-section>div {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .technology-row {
@@ -4575,14 +4577,18 @@ img {
 }
 
 .technology-left-img-wrap {
-  background-image: url("https://cdn.prod.website-files.com/68a75398e3a48150f39441ec/68ac3f41e1d0d8a36cf45cc7_cdbdbb619759e8a0c67d1572ae6d24fd_medium-shot-doctor-checking-x-rays%201.webp");
-  background-position: 50% 66%;
-  background-repeat: repeat-y;
-  background-size: cover;
   border-radius: 16px;
   height: 582px;
-  position: relative;
-  overflow: hidden;
+  width: 100%;
+}
+
+.technology-left-img-wrap img {
+  width: auto;
+  border-radius: 16px;
+}
+
+.technology-left-img-wrap img:nth-last-of-type(1) {
+  display: none;
 }
 
 .technology-right-wrap {
@@ -4644,10 +4650,14 @@ img {
   grid-row-gap: 15px;
   flex-flow: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   display: flex;
   overflow: hidden;
+}
+
+.section-title-wrap-two .desc {
+  width: 50%;
 }
 
 .team-section-two {
@@ -5641,10 +5651,10 @@ img {
 }
 
 .team-collection-list._03 {
-  grid-column-gap: 40px;
-  grid-row-gap: 40px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
 }
@@ -6514,13 +6524,6 @@ img {
     flex-flow: column;
   }
 
-  .technology-left-img-wrap {
-    background-image: url("https://cdn.prod.website-files.com/68a75398e3a48150f39441ec/68ac3f41e1d0d8a36cf45cc7_cdbdbb619759e8a0c67d1572ae6d24fd_medium-shot-doctor-checking-x-rays%201.webp");
-    background-position: 50% 0;
-    background-repeat: repeat-y;
-    background-size: cover;
-  }
-
   .team-row-two {
     grid-column-gap: 30px;
     grid-row-gap: 30px;
@@ -6704,7 +6707,7 @@ img {
   }
 
   .team-collection-list._03 {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .page-title-left {
@@ -7187,8 +7190,17 @@ img {
     padding-bottom: 60px;
   }
 
-  .technology-left-img-wrap {
-    background-position: 50% 0;
+  .technology-section>div {
+    flex-direction: column;
+  }
+
+  .technology-left-img-wrap img:nth-last-of-type(1) {
+    display: block;
+    width: 100%;
+  }
+
+  .technology-left-img-wrap img:nth-of-type(1) {
+    display: none;
   }
 
   .technology-btn {
@@ -7324,7 +7336,7 @@ img {
   }
 
   .team-collection-list._03 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .footer-email {
@@ -7443,7 +7455,7 @@ img {
 
   h1 {
     letter-spacing: 0;
-    font-size: 38px;
+    font-size: 34px;
   }
 
   h2 {
@@ -7460,6 +7472,10 @@ img {
 
   h6 {
     font-size: 13px;
+  }
+
+  .page-title-text.style-two {
+    max-width: 100%
   }
 
   .body-18-semibold {
@@ -7641,7 +7657,6 @@ img {
   .section-title.service-title-02,
   .section-title.appointment-title,
   .section-title.blog-title,
-  .section-title.team-title,
   .about-excerpt {
     text-align: center;
   }
@@ -7961,8 +7976,9 @@ img {
     padding-bottom: 50px;
   }
 
-  .about-top {
-    margin-top: auto;
+  .about-top,
+  .about-top-service {
+    margin-top: auto !important;
     padding: 50px 10px;
   }
 
@@ -8032,7 +8048,10 @@ img {
 
   .section-title-wrap-two {
     justify-content: center;
-    align-items: center;
+  }
+
+  .section-title-wrap-two p:nth-last-of-type(1) {
+    width: 100%;
   }
 
   .team-wrap-two,
