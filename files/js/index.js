@@ -111,7 +111,6 @@ function getStatusClass() {
 getStatusClass(); // مباشرة
 startAccurateClock(); */
 
-// === 1. نجيبو وقت تونس ===
 function getTunisNow() {
   const now = new Date();
 
@@ -146,46 +145,50 @@ function getTunisNow() {
   };
 }
 
+const available = document.querySelectorAll(".available");
+
 function getStatusClass() {
   const { day, hour, minute } = getTunisNow();
 
-  const openElem = document.querySelector(".open");
-  const closedElem = document.querySelector(".closed");
+  available.forEach((box) => {
+    const openElem = box.querySelector(".open");
+    const closedElem = box.querySelector(".closed");
 
-  if (!openElem || !closedElem) return;
+    if (!openElem || !closedElem) return;
 
-  function setOpen() {
-    closedElem.classList.remove("now");
-    openElem.classList.add("now");
-  }
+    function setOpen() {
+      closedElem.classList.remove("now");
+      openElem.classList.add("now");
+    }
 
-  function setClosed() {
-    openElem.classList.remove("now");
-    closedElem.classList.add("now");
-  }
+    function setClosed() {
+      openElem.classList.remove("now");
+      closedElem.classList.add("now");
+    }
 
-  // dimanche
-  if (day === 0) return setClosed();
+    // dimanche
+    if (day === 0) return setClosed();
 
-  // samedi
-  if (day === 6) {
-    if (hour >= 8 && (hour < 16 || (hour === 16 && minute === 0))) {
+    // samedi
+    if (day === 6) {
+      if (hour >= 8 && (hour < 16 || (hour === 16 && minute === 0))) {
+        setOpen();
+      } else {
+        setClosed();
+      }
+      return;
+    }
+
+    // lundi → vendredi
+    if (hour >= 8 && hour < 19) {
       setOpen();
     } else {
       setClosed();
     }
-    return;
-  }
-
-  // lundi → vendredi
-  if (hour >= 8 && hour < 19) {
-    setOpen();
-  } else {
-    setClosed();
-  }
+  });
 }
 
-// === 2. نحسبو التبديل الجاي ===
+// ======
 function getNextChangeDelay() {
   const now = getTunisNow();
 
@@ -206,7 +209,7 @@ function getNextChangeDelay() {
       nextHour = 16;
     } else {
       nextHour = 8;
-      daysToAdd = 2; // الاثنين
+      daysToAdd = 2;
     }
   }
   // semaine
@@ -230,7 +233,7 @@ function getNextChangeDelay() {
   return target - nowDate;
 }
 
-// === 3. scheduler ===
+// ======
 function smartScheduler() {
   getStatusClass();
 
@@ -239,7 +242,7 @@ function smartScheduler() {
   setTimeout(smartScheduler, delay);
 }
 
-// === تشغيل ===
+// ======
 smartScheduler();
 
 // Sticky CTA Button
